@@ -1,1 +1,23 @@
 // app global css in Sass form
+@import url('https://fonts.googleapis.com/css2?family=Mada:wght@400;500;600;700&display=swap')
+@import './tailwind.css'
+
+body
+  font-family: 'Mada', 'Inter', system-ui, -apple-system, sans-serif
+  background-color: #0f172a
+  color: #0b1224
+
+html
+  scroll-behavior: smooth
+
+section
+  scroll-margin-top: 96px
+
+.glass
+  backdrop-filter: blur(12px)
+  background: rgba(255, 255, 255, 0.8)
+  &.dark
+    background: rgba(15, 23, 42, 0.7)
+
+.container
+  @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8

@@ -1,42 +1,40 @@
-// This is just an example,
-// so you can safely delete all default props below
-
 export default {
   nav: {
     brand: 'Matheus Pimentel',
     home: 'Home',
-    about: 'About',
+    about: 'Sobre mim',
     skills: 'Skills',
-    work: 'Work',
-    contact: 'Contact',
-    theme: 'Toggle theme',
-    language: 'Toggle language',
+    work: 'Trabalho',
+    contact: 'Contato',
+    theme: 'Alternar tema',
+    language: 'Alternar idioma',
   },
   hero: {
-    greeting: 'Hello, I am',
+    greeting: 'Olá, eu sou o',
     name: 'Matheus Pimentel',
-    role: 'Full-Stack Software Developer',
-    punchline: 'I build efficient and scalable web applications, bridging robust back-ends with elegant, user-centric interfaces.',
-    ctaDownload: 'Download CV',
-    ctaGithub: 'View GitHub',
-    visualizar: 'View Site',
+    role: 'Desenvolvedor de Software Full-Stack.',
+    punchline: 'Construo aplicações web eficientes e escaláveis, unindo back-ends robustos a interfaces elegantes e focadas na experiência do usuário.',
+    ctaDownload: 'Baixar CV',
+    ctaGithub: 'Ver GitHub',
+    visualizar: 'Visualizar Site',
   },
   about: {
-    title: 'About me',
-    subtitle: 'Passionate about creating delightful digital products that balance performance, accessibility, and aesthetics.',
-    description: 'I am a software developer passionate about creating end-to-end solutions, from database structuring to the final user interface. I have a strong focus on best practices and design patterns, such as Clean Architecture, ensuring that the code is clean, scalable, and highly maintainable. \n\n My expertise flows seamlessly between the Java ecosystem (Spring Boot) on the back-end and modern front-end frameworks, primarily Vue.js (with Quasar) and React. Beyond coding, I enjoy orchestrating standardized and efficient development environments using tools like Docker and relational databases like PostgreSQL. My goal is always to optimize processes and build solid applications that solve real-world problems.',
+    title: 'Sobre mim',
+    subtitle: 'Apaixonado por criar produtos digitais que equilibram performance, acessibilidade e estética.',
+    description: 'Sou um desenvolvedor de software apaixonado por criar soluções ponta a ponta, desde a estruturação do banco de dados até a interface final do usuário. Tenho um forte foco em boas práticas e padrões de projeto, como a Clean Architecture, garantindo que o código seja limpo, escalável e fácil de manter. \n\n' +
+      'Minha atuação transita com fluidez entre o ecossistema Java (Spring Boot) no back-end e frameworks modernos de front-end, principalmente Vue.js (com Quasar) e React. Além de codificar, gosto de orquestrar ambientes de desenvolvimento padronizados e eficientes utilizando ferramentas como Docker e bancos relacionais como PostgreSQL. Meu objetivo é sempre otimizar processos e construir aplicações sólidas que resolvam problemas reais.',
     highlights: [
-      'Vue 3 specialist',
-      'Component-driven architecture',
-      'UI performance & accessibility',
+      'Especialista em Vue 3',
+      'Arquitetura orientada a componentes',
+      'Performance e acessibilidade',
       'Typescript',
       'Javascript',
       "PostgreSQL",
     ],
   },
   skills: {
-    title: 'Skills & Tools',
-    subtitle: 'Technologies I use to design, build, and ship modern products.',
+    title: 'Skills e Ferramentas',
+    subtitle: 'Tecnologias que uso para desenhar, construir e lançar produtos modernos.',
     categories: [
       {
         title: 'Frontend',
@@ -61,11 +59,11 @@ export default {
           { name: 'JasperStudio', icon: 'fa-regular fa-file-lines', color: '#009473' },
           { name: 'Python', icon: 'fa-brands fa-python', color: '#3776ab' },
           { name: 'Firebase', icon: 'fa-solid fa-fire-flame-curved', color: '#ffca28' },
-          { name: 'Generative AI', icon: 'fa-solid fa-brain', color: '#a855f7' },
+          { name: 'IA Generativa', icon: 'fa-solid fa-brain', color: '#a855f7' },
         ],
       },
       {
-        title: 'Databases',
+        title: 'Banco de Dados',
         items: [
           { name: 'PostgreSQL', icon: 'fa-solid fa-database', color: '#336791' },
           { name: 'MongoDB', icon: 'fa-solid fa-leaf', color: '#4caf50' },
@@ -82,7 +80,7 @@ export default {
         ],
       },
       {
-        title: 'Process & Management',
+        title: 'Processos & Gestão',
         items: [
           { name: 'Scrum', icon: 'fa-solid fa-diagram-project', color: '#9333ea' },
           { name: 'Kanban', icon: 'fa-solid fa-table-columns', color: '#0ea5e9' },
@@ -92,12 +90,12 @@ export default {
     ],
   },
   projects: {
-    title: 'Selected Work',
-    subtitle: 'A few projects showcasing the blend of design systems, performance, and product thinking.',
+    title: 'Projetos em Destaque',
+    subtitle: 'Alguns projetos que unem design system, performance e pensamento de produto.',
     items: [
       {
         title: 'Tagnos Educação',
-        description: 'Project built by TDR Informática focused on schools and educational institutions.',
+        description: 'Projeto desenvolvido pela empresa TDR Informática como foco em escolas e instituições de ensino.',
         tech: ['Vue 2', 'Quasar', 'Javascript', 'Spring Boot', 'Java', 'PostgreSQL', 'JasperStudio', 'Jenkins', 'Docker'],
         liveUrl: 'https://tagnos.com.br/',
         image: 'src/assets/logo_tagnos_educacao.png',
@@ -106,7 +104,7 @@ export default {
       },
       {
         title: 'Tagnos Social',
-        description: 'Project built by TDR Informática focused on social care for municipalities.',
+        description: 'Projeto desenvolvido pela empresa TDR Informática como foco em atendimentos sociais para os municípios.',
         tech: ['Vue 2', 'Quasar', 'Javascript', 'Spring Boot', 'Java', 'PostgreSQL', 'JasperStudio', 'Jenkins', 'Docker'],
         liveUrl: 'https://social.tagnos.com.br/',
         image: 'src/assets/logo_tagnos_social.png',
@@ -116,20 +114,20 @@ export default {
     ],
   },
   contact: {
-    title: 'Let’s collaborate',
-    subtitle: 'Tell me about your idea, product, or challenge. I will get back to you quickly.',
+    title: 'Vamos colaborar',
+    subtitle: 'Conte-me sobre sua ideia, produto ou desafio. Vou responder rapidamente.',
     form: {
-      name: 'Name',
-      email: 'Email',
-      message: 'Message',
-      send: 'Send message',
-      emailHint: 'We use EmailJS. Set VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID and VITE_EMAILJS_PUBLIC_KEY in your env.',
-      success: 'Message sent! I will reply soon.',
-      error: 'Could not send the message. Please try again.',
+      name: 'Nome',
+      email: 'E-mail',
+      message: 'Mensagem',
+      send: 'Enviar mensagem',
+      emailHint: 'Usamos EmailJS. Configure VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID e VITE_EMAILJS_PUBLIC_KEY no seu env.',
+      success: 'Mensagem enviada! Vou responder em breve.',
+      error: 'Não foi possível enviar. Tente novamente.',
     },
     social: [
       { name: 'GitHub', url: 'https://github.com/MatheusPimentel', icon: 'fa-brands fa-github', color: '#181717' },
-      { name: 'LinkedIn', url: 'https://www.linkedin.com/in/matheus-v-pimentel/', icon: 'fa-brands fa-linkedin', color: '#0A66C2' },
+      { name: 'LinkedIn', url: 'https://www.linkedin.com/in/matheus-v-pimentel//', icon: 'fa-brands fa-linkedin', color: '#0A66C2' },
       { name: 'Instagram', url: 'https://www.instagram.com/m.pimentell/', icon: 'fa-brands fa-instagram', color: '#E4405F' },
       { name: 'Gmail', url: 'mailto:matheus200713@gmail.com', icon: 'fa-regular fa-envelope', color: '#D14836' },
       { name: 'Outlook', url: 'mailto:matheus200713@outlook.com', icon: 'fa-regular fa-envelope', color: '#0078D4' },
