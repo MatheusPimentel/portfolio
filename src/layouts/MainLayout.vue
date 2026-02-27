@@ -7,7 +7,7 @@
       <q-toolbar class="container justify-between min-h-[72px]">
         <div class="flex items-center gap-2">
           <q-avatar color="primary" text-color="white" size="32px">
-            <img src="src/assets/perfil.png">
+            <img :src="profileImg">
           </q-avatar>
           <div class="leading-tight">
             <div class="font-semibold">{{ t('nav.brand') }}</div>
@@ -45,7 +45,7 @@
     >
       <div class="px-4 pt-4 pb-2 flex items-center gap-3 border-b border-white/50 dark:border-white/10">
         <q-avatar color="primary" text-color="white" size="36px">
-          <img src="src/assets/perfil.png">
+          <img :src="profileImg">
         </q-avatar>
         <div class="flex-1">
           <p class="font-semibold text-slate-900 dark:text-white leading-tight">{{ t('nav.brand') }}</p>
@@ -82,6 +82,7 @@
 import { computed, ref, onMounted } from 'vue';
 import { useQuasar } from 'quasar';
 import { useI18n } from 'vue-i18n';
+import profileImg from 'assets/perfil.png';
 
 const $q = useQuasar();
 const { t, locale } = useI18n();

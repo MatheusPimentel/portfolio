@@ -11,7 +11,7 @@
               <div class="absolute inset-0 rounded-full bg-gradient-to-br from-primary-400 via-cyan-400 to-indigo-500 blur-3xl opacity-60" />
               <div class="relative w-full h-full rounded-full overflow-hidden border border-white/20 shadow-xl bg-slate-800 flex items-center justify-center">
                 <q-avatar size="200px" font-size="64px" color="primary" text-color="white" class="shadow-lg">
-                  <img src="src/assets/perfil.png">
+                  <img :src="profileImg">
                 </q-avatar>
               </div>
             </div>
@@ -41,6 +41,7 @@
 import { useI18n } from 'vue-i18n';
 import SectionTitle from './SectionTitle.vue';
 import { computed } from 'vue';
+import profileImg from 'assets/perfil.png';
 
 const i18n = useI18n();
 const { t } = i18n;

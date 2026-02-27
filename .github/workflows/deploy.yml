@@ -1,0 +1,35 @@
+name: Deploy Portfolio to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Mude para 'master' se a sua branch principal tiver esse nome
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Versão estável recomendada para Vue 3 / Quasar
+
+      - name: Instalar dependências
+        run: npm install # Se você usa yarn, troque para 'yarn install'
+
+      - name: Construir o projeto Quasar
+        run: npx quasar build
+
+      - name: Fazer o Deploy para o GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist/spa
+          cname: matheuspimentell.com.br
