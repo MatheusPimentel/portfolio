@@ -1,3 +1,6 @@
+import logoTagnosEducacao from 'assets/logo_tagnos_educacao.png';
+import logoTagnosSocial from 'assets/logo_tagnos_social.png';
+
 export default {
   nav: {
     brand: 'Matheus Pimentel',
@@ -98,7 +101,7 @@ export default {
         description: 'Projeto desenvolvido pela empresa TDR Informática como foco em escolas e instituições de ensino.',
         tech: ['Vue 2', 'Quasar', 'Javascript', 'Spring Boot', 'Java', 'PostgreSQL', 'JasperStudio', 'Jenkins', 'Docker'],
         liveUrl: 'https://tagnos.com.br/',
-        image: 'src/assets/logo_tagnos_educacao.png',
+        image: logoTagnosEducacao,
         backgroundColor: '#eb8217',
         repoUrl: null
       },
@@ -107,7 +110,7 @@ export default {
         description: 'Projeto desenvolvido pela empresa TDR Informática como foco em atendimentos sociais para os municípios.',
         tech: ['Vue 2', 'Quasar', 'Javascript', 'Spring Boot', 'Java', 'PostgreSQL', 'JasperStudio', 'Jenkins', 'Docker'],
         liveUrl: 'https://social.tagnos.com.br/',
-        image: 'src/assets/logo_tagnos_social.png',
+        image: logoTagnosSocial,
         backgroundColor: '#005c51',
         repoUrl: null
       }

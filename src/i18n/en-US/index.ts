@@ -1,5 +1,5 @@
-// This is just an example,
-// so you can safely delete all default props below
+import logoTagnosEducacao from 'assets/logo_tagnos_educacao.png';
+import logoTagnosSocial from 'assets/logo_tagnos_social.png';
 
 export default {
   nav: {
@@ -100,7 +100,7 @@ export default {
         description: 'Project built by TDR Informática focused on schools and educational institutions.',
         tech: ['Vue 2', 'Quasar', 'Javascript', 'Spring Boot', 'Java', 'PostgreSQL', 'JasperStudio', 'Jenkins', 'Docker'],
         liveUrl: 'https://tagnos.com.br/',
-        image: 'src/assets/logo_tagnos_educacao.png',
+        image: logoTagnosEducacao,
         backgroundColor: '#eb8217',
         repoUrl: null
       },
@@ -109,7 +109,7 @@ export default {
         description: 'Project built by TDR Informática focused on social care for municipalities.',
         tech: ['Vue 2', 'Quasar', 'Javascript', 'Spring Boot', 'Java', 'PostgreSQL', 'JasperStudio', 'Jenkins', 'Docker'],
         liveUrl: 'https://social.tagnos.com.br/',
-        image: 'src/assets/logo_tagnos_social.png',
+        image: logoTagnosSocial,
         backgroundColor: '#005c51',
         repoUrl: null
       }

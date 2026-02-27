@@ -13,7 +13,7 @@
             <p class="text-lg text-slate-200">{{ t('hero.punchline') }}</p>
             <div class="flex flex-wrap items-center gap-3">
               <a
-                href="#"
+                :href="cvUrl"
                 class="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary-400 via-primary-500 to-indigo-500 px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-primary-500/30 transition hover:-translate-y-0.5 hover:shadow-primary-500/50"
                 download
               >
@@ -21,7 +21,7 @@
                 <span>{{ t('hero.ctaDownload') }}</span>
               </a>
               <a
-                href="https://github.com/"
+                href="https://github.com/MatheusPimentel"
                 target="_blank"
                 rel="noreferrer"
                 class="inline-flex items-center gap-2 rounded-full border border-primary-400/60 px-5 py-3 text-sm font-semibold text-primary-100 bg-white/5 transition hover:-translate-y-0.5 hover:bg-white/10 hover:border-primary-300"
@@ -65,7 +65,7 @@
 
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n';
+import cvUrl from 'assets/CV.pdf';
 
 const { t } = useI18n();
 </script>
-
