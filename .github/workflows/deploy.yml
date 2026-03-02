@@ -3,7 +3,7 @@ name: Deploy Portfolio to GitHub Pages
 on:
   push:
     branches:
-      - main # Mude para 'master' se a sua branch principal tiver esse nome
+      - main
 
 permissions:
   contents: write
@@ -19,13 +19,17 @@ jobs:
       - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20' # Versão estável recomendada para Vue 3 / Quasar
+          node-version: '22'
 
       - name: Instalar dependências
-        run: npm install # Se você usa yarn, troque para 'yarn install'
+        run: npm ci
 
       - name: Construir o projeto Quasar
-        run: npx quasar build
+        env:
+          VITE_EMAILJS_SERVICE_ID: ${{ secrets.VITE_EMAILJS_SERVICE_ID }}
+          VITE_EMAILJS_TEMPLATE_ID: ${{ secrets.VITE_EMAILJS_TEMPLATE_ID }}
+          VITE_EMAILJS_PUBLIC_KEY: ${{ secrets.VITE_EMAILJS_PUBLIC_KEY }}
+        run: npm run build
 
       - name: Fazer o Deploy para o GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
@@ -33,3 +37,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist/spa
           cname: matheuspimentell.com.br
+

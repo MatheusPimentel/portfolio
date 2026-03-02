@@ -1,0 +1,28 @@
+services:
+  # ─── Produção ────────────────────────────────────────────────────────────────
+  # docker compose up portfolio
+  portfolio:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: portfolio
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+
+  # ─── Desenvolvimento (hot reload) ────────────────────────────────────────────
+  # docker compose up portfolio-dev
+  portfolio-dev:
+    image: node:22-alpine
+    container_name: portfolio-dev
+    working_dir: /app
+    volumes:
+      - .:/app                        # monta o código fonte
+      - /app/node_modules             # mantém node_modules do container isolado
+    ports:
+      - "9000:9000"                   # porta padrão do quasar dev
+    environment:
+      - HOST=0.0.0.0                  # necessário para aceitar conexões externas
+    command: sh -c "npm install && npm run dev"
+    restart: unless-stopped
+

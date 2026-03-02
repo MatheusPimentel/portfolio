@@ -12,42 +12,166 @@ Personal portfolio built with Quasar (Vue 3 + Vite), TailwindCSS, and TypeScript
 - Tooling: Vite (via @quasar/app-vite), ESLint + Prettier, EmailJS browser SDK.
 
 ## Prerequisites
-- Node as per `package.json` engines (>=20 recommended).
-- pnpm >= 10 (recommended). npm/yarn also work if you prefer.
+- Node >= 20 (recomendado).
+- npm >= 6 (já vem com o Node).
 
 ## Setup
 ```bash
-pnpm install
+npm install
 ```
 
 ## Run (dev)
 ```bash
-pnpm dev
+npm run dev
 ```
 
 ## Lint
 ```bash
-pnpm lint
+npm run lint
 ```
 
 ## Format
 ```bash
-pnpm format
+npm run format
 ```
 
 ## Build
 ```bash
-pnpm build
+npm run build
 ```
 
+---
+
+## 🐳 Docker
+
+> Não precisa ter Node, npm ou qualquer dependência instalada localmente.  
+> Apenas o **Docker** (e o plugin **Compose**) são necessários.
+
+### Pré-requisito
+
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) **ou** Docker Engine + Docker Compose plugin.
+
+---
+
+### Desenvolvimento — com Hot Reload
+
+Monta o código-fonte como volume: qualquer alteração nos arquivos é refletida instantaneamente no navegador.
+
+```bash
+docker compose up portfolio-dev
+```
+
+Acesse em → **http://localhost:9000**
+
+Para rodar em **background** (modo detached):
+
+```bash
+docker compose up portfolio-dev -d
+```
+
+Para acompanhar os logs depois:
+
+```bash
+docker compose logs -f portfolio-dev
+```
+
+---
+
+### Produção — build otimizado + Nginx
+
+Gera o build de produção e serve com Nginx (imagem final enxuta, sem código-fonte).
+
+```bash
+docker compose up portfolio --build
+```
+
+Acesse em → **http://localhost:8080**
+
+> A flag `--build` reconstrói a imagem. Após o primeiro build, pode omiti-la se não houver mudanças.
+
+Para rodar em **background**:
+
+```bash
+docker compose up portfolio --build -d
+```
+
+---
+
+### Parar os containers
+
+```bash
+# Para todos os serviços
+docker compose down
+
+# Para um serviço específico
+docker compose stop portfolio-dev
+docker compose stop portfolio
+```
+
+---
+
+### Rebuild completo (limpar cache)
+
+Use quando quiser forçar uma reinstalação das dependências do zero:
+
+```bash
+docker compose build --no-cache portfolio-dev
+docker compose build --no-cache portfolio
+```
+
+---
+
+### Resumo rápido dos comandos
+
+| Objetivo | Comando |
+|---|---|
+| Subir dev (hot reload) | `docker compose up portfolio-dev` |
+| Subir produção | `docker compose up portfolio --build` |
+| Subir em background | `docker compose up <serviço> -d` |
+| Ver logs | `docker compose logs -f <serviço>` |
+| Parar tudo | `docker compose down` |
+| Rebuild sem cache | `docker compose build --no-cache <serviço>` |
+
+---
+
 ## Environment
-Create a `.env` in the project root:
+
+O arquivo `.env` **nunca deve ser commitado** — ele já está no `.gitignore`.
+
+### Desenvolvimento local
+
+Copie o arquivo de exemplo e preencha com suas credenciais:
+
+```bash
+cp .env.example .env
 ```
-VITE_EMAILJS_SERVICE_ID=service_am90nq1
-VITE_EMAILJS_TEMPLATE_ID=template_5yna38m
-VITE_EMAILJS_PUBLIC_KEY=K2aswJNTe4bck9OcC
+
+```dotenv
+VITE_EMAILJS_SERVICE_ID=your_service_id
+VITE_EMAILJS_TEMPLATE_ID=your_template_id
+VITE_EMAILJS_PUBLIC_KEY=your_public_key
 ```
-Your EmailJS template should include variables: `{{name}}`, `{{time}}`, `{{message}}`.
+
+> As variáveis `VITE_*` são injetadas pelo Vite em **tempo de build** e ficam embutidas no bundle — não ficam expostas em um arquivo de configuração em runtime.
+
+### Deploy via GitHub Actions (CI)
+
+As variáveis são lidas via **GitHub Secrets**, configurados no repositório. O workflow `deploy.yml` já as injeta automaticamente no step de build.
+
+**Como cadastrar os Secrets no GitHub:**
+
+1. Acesse o repositório → **Settings → Secrets and variables → Actions**
+2. Clique em **New repository secret** e cadastre cada uma:
+
+| Nome do Secret | Valor |
+|---|---|
+| `VITE_EMAILJS_SERVICE_ID` | ID do seu serviço no EmailJS |
+| `VITE_EMAILJS_TEMPLATE_ID` | ID do template no EmailJS |
+| `VITE_EMAILJS_PUBLIC_KEY` | Chave pública do EmailJS |
+
+Feito isso, a cada push na branch `main` o workflow faz o build com as variáveis corretas e realiza o deploy automaticamente.
+
+
 
 ## Project Map
 - `src/layouts/MainLayout.vue`: layout shell, header/drawer nav, theme + locale toggles, footer.

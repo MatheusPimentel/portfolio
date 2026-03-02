@@ -1,5 +1,6 @@
 import logoTagnosEducacao from 'assets/logo_tagnos_educacao.png';
 import logoTagnosSocial from 'assets/logo_tagnos_social.png';
+import portfolio from 'assets/portfolio.png';
 
 export default {
   nav: {
@@ -113,6 +114,15 @@ export default {
         image: logoTagnosSocial,
         backgroundColor: '#005c51',
         repoUrl: null
+      },
+      {
+        title: 'Portfólio Pessoal',
+        description: 'Portfólio pessoal desenvolvido com Quasar, Vue 3 e TypeScript; foco em performance, acessibilidade e design responsivo, com build em Docker e deploy contínuo.',
+        tech: ['Vue 3', 'Quasar', 'Typescript', 'Docker'],
+        liveUrl: 'https://matheuspimentell.com.br/#/',
+        image: portfolio,
+        backgroundColor: 'null',
+        repoUrl: 'https://github.com/MatheusPimentel/portfolio#'
       }
     ],
   },

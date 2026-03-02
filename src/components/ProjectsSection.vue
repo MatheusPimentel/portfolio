@@ -69,6 +69,7 @@ import SectionTitle from './SectionTitle.vue';
 
 const techMeta: Record<string, { icon: string; color: string }> = {
   'Vue 2': { icon: 'fa-brands fa-vuejs', color: '#42b883' },
+  'Vue 3': { icon: 'fa-brands fa-vuejs', color: '#42b883' },
   Vue: { icon: 'fa-brands fa-vuejs', color: '#42b883' },
   Quasar: { icon: 'fa-solid fa-mountain-sun', color: '#1976d2' },
   Javascript: { icon: 'fa-brands fa-js', color: '#f7df1e' },
