@@ -68,9 +68,9 @@ import { useQuasar } from 'quasar';
 import emailjs from '@emailjs/browser';
 import SectionTitle from './SectionTitle.vue';
 
+const $q = useQuasar();
 const i18n = useI18n();
 const { t } = i18n;
-const $q = useQuasar();
 const social = computed(() => i18n.tm('contact.social'));
 
 const form = reactive({ name: '', email: '', message: '' });
@@ -100,7 +100,7 @@ const onSubmit = async () => {
         publicKey: emailConfig.publicKey,
       }
     );
-
+    console.log('EmailJS success');
     $q.notify({ type: 'positive', message: t('contact.form.success') });
     form.name = '';
     form.email = '';
