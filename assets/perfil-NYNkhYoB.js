@@ -1,0 +1,1 @@
+import{b as r,j as e,am as t}from"./index-CJkm82Ai.js";const n={dark:{type:Boolean,default:null}};function o(a,s){return r(()=>a.dark===null?s.dark.isActive:a.dark)}function i(){return e(t)}const l="/assets/perfil-D_H9_EVR.png";export{o as a,i as b,l as p,n as u};
