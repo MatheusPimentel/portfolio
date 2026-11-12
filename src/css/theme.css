@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap');
+:root{--bg:#FAFAF8;--surface:#fff;--line:rgba(11,13,18,.11);--fg:#0B0D12;--mute:#566073;--accent:#0B7A55;--btn-bg:#0B0D12;--btn-fg:#fff}
+.body--dark{--bg:#0B0D12;--surface:#11141B;--line:rgba(255,255,255,.09);--fg:#ECEEF3;--mute:#8C94A4;--accent:#3DDC97;--btn-bg:#fff;--btn-fg:#0B0D12}
+body{background:var(--bg);color:var(--fg);font-family:Geist,Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{letter-spacing:-.03em;line-height:1.05}
+.q-layout,.q-page,.q-page-container{background:var(--bg)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.btn{display:inline-flex;align-items:center;gap:.5rem;height:44px;padding:0 1.1rem;border-radius:10px;font-weight:500;font-size:.95rem;border:1px solid var(--line);color:var(--fg);transition:border-color .2s,opacity .2s,transform .2s}
+.btn:hover{border-color:var(--fg)}
+.btn:active{transform:scale(.98)}
+.btn-primary{background:var(--btn-bg);color:var(--btn-fg);border-color:transparent}
+.btn-primary:hover{opacity:.85;border-color:transparent}
+.panel{border:1px solid var(--line);background:var(--surface);border-radius:16px;transition:border-color .25s}
+.panel:hover{border-color:color-mix(in srgb,var(--fg) 30%,transparent)}
+.tag{font-family:'Geist Mono',ui-monospace,monospace;font-size:.75rem;padding:.2rem .55rem;border:1px solid var(--line);border-radius:6px;color:var(--mute);transition:color .2s,border-color .2s}
+.tag:hover{color:var(--fg);border-color:var(--fg)}
+.grid-bg{background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse 70% 70% at 25% 20%,#000,transparent 75%);mask-image:radial-gradient(ellipse 70% 70% at 25% 20%,#000,transparent 75%)}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}}
+.rise{animation:rise .8s cubic-bezier(.22,1,.36,1) both}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}

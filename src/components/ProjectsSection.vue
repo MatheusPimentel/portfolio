@@ -1,62 +1,39 @@
 <template>
-  <section id="work" class="bg-slate-50 dark:bg-slate-950 py-20">
+  <section id="work" class="border-t border-line py-24">
     <div class="container">
-      <q-intersection once transition="fade">
-        <SectionTitle :title="t('projects.title')" :subtitle="t('projects.subtitle')" />
-      </q-intersection>
-      <div class="mt-12 grid gap-8 lg:grid-cols-2">
-        <q-intersection v-for="project in projects" :key="project.title" once transition="slide-up">
-          <div class="group overflow-hidden rounded-3xl border border-slate-200/70 dark:border-white/10 bg-white/90 dark:bg-slate-800/80 shadow-lg">
-            <div
-              class="relative aspect-[16/9] overflow-hidden"
-              :style="project.backgroundColor ? { backgroundColor: project.backgroundColor } : undefined"
-            >
-              <img :src="project.image" :alt="project.title" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/20 to-transparent" />
-              <div class="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2">
-                <q-badge
-                  v-for="tech in project.tech"
-                  :key="tech"
-                  :icon="techMeta[tech]?.icon || 'fa-solid fa-code'"
-                  class="backdrop-blur text-xs px-3 py-1 uppercase tracking-wide text-white border border-white/10"
-                  :label="tech"
-                  :style="{ backgroundColor: techMeta[tech]?.color || '#0ea5e9' }"
-                />
-              </div>
+      <SectionTitle :title="t('projects.title')" :subtitle="t('projects.subtitle')" />
+      <div class="mt-12 space-y-6">
+        <article v-for="p in projects" :key="p.title" class="panel group grid gap-0 overflow-hidden lg:grid-cols-[1fr,1.2fr]">
+          <div
+            class="flex min-h-[220px] items-center justify-center border-b border-line p-8 lg:border-b-0 lg:border-r"
+            :style="p.backgroundColor && p.backgroundColor !== 'null' ? { backgroundColor: p.backgroundColor } : undefined"
+          >
+            <img :src="p.image" :alt="p.title" class="max-h-44 w-full object-contain transition-transform duration-500 group-hover:scale-[1.03]" />
+          </div>
+          <div class="flex flex-col gap-5 p-7 sm:p-9">
+            <div>
+              <h3 class="text-2xl font-semibold">{{ p.title }}</h3>
+              <p class="mt-2 text-mute">{{ p.description }}</p>
             </div>
-            <div class="p-6 space-y-4">
-              <div class="flex items-start justify-between gap-4">
-                <div>
-                  <h3 class="text-xl font-semibold text-slate-900 dark:text-white">{{ project.title }}</h3>
-                  <p class="text-slate-700 dark:text-slate-200 mt-1">{{ project.description }}</p>
-                </div>
-              </div>
-              <div class="flex flex-wrap gap-3">
-                <q-btn
-                  v-if="project.liveUrl"
-                  color="primary"
-                  outline
-                  size="sm"
-                  icon="fa-solid fa-arrow-up-right-from-square"
-                  :label="t('hero.visualizar')"
-                  :href="project.liveUrl"
-                  target="_blank"
-                  class="dark:text-white"
-                />
-                <q-btn
-                  v-if="project.repoUrl"
-                  outline
-                  size="sm"
-                  icon="fa-brands fa-github"
-                  label="GitHub"
-                  :href="project.repoUrl"
-                  target="_blank"
-                  class="text-slate-800 dark:text-slate-100"
-                />
-              </div>
+            <div>
+              <p class="text-sm font-medium">{{ t('projects.challenge') }}</p>
+              <p class="mt-1 max-w-[60ch] text-mute">{{ p.challenge }}</p>
+            </div>
+            <div>
+              <p class="mb-2 text-sm font-medium">{{ t('projects.stack') }}</p>
+              <div class="flex flex-wrap gap-2"><span v-for="s in p.tech" :key="s" class="tag">{{ s }}</span></div>
+            </div>
+            <div class="mt-auto flex flex-wrap items-center gap-3 pt-2">
+              <a v-if="p.liveUrl" class="btn btn-primary" :href="p.liveUrl" target="_blank" rel="noreferrer">
+                {{ t('projects.live') }}<q-icon name="fa-solid fa-arrow-up-right-from-square" size="12px" />
+              </a>
+              <a v-if="p.repoUrl" class="btn" :href="p.repoUrl" target="_blank" rel="noreferrer">
+                <q-icon name="fa-brands fa-github" size="15px" />GitHub
+              </a>
+              <span v-else class="text-sm text-mute">{{ t('projects.private') }}</span>
             </div>
           </div>
-        </q-intersection>
+        </article>
       </div>
     </div>
   </section>
@@ -66,27 +43,6 @@
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import SectionTitle from './SectionTitle.vue';
-
-const techMeta: Record<string, { icon: string; color: string }> = {
-  'Vue 2': { icon: 'fa-brands fa-vuejs', color: '#42b883' },
-  'Vue 3': { icon: 'fa-brands fa-vuejs', color: '#42b883' },
-  Vue: { icon: 'fa-brands fa-vuejs', color: '#42b883' },
-  Quasar: { icon: 'fa-solid fa-mountain-sun', color: '#1976d2' },
-  Javascript: { icon: 'fa-brands fa-js', color: '#f7df1e' },
-  JavaScript: { icon: 'fa-brands fa-js', color: '#f7df1e' },
-  TypeScript: { icon: 'fa-solid fa-file-code', color: '#3178c6' },
-  Tailwind: { icon: 'fa-solid fa-wind', color: '#38bdf8' },
-  'Spring Boot': { icon: 'fa-solid fa-seedling', color: '#6db33f' },
-  Java: { icon: 'fa-brands fa-java', color: '#e76f00' },
-  PostgreSQL: { icon: 'fa-solid fa-database', color: '#336791' },
-  JasperStudio: { icon: 'fa-regular fa-file-lines', color: '#009473' },
-  Jenkins: { icon: 'fa-solid fa-gears', color: '#d24939' },
-  Docker: { icon: 'fa-brands fa-docker', color: '#0db7ed' },
-  Nuxt: { icon: 'fa-solid fa-leaf', color: '#00dc82' },
-  i18n: { icon: 'fa-solid fa-language', color: '#8b5cf6' },
-  Firestore: { icon: 'fa-solid fa-database', color: '#ff7043' },
-  Firebase: { icon: 'fa-solid fa-fire-flame-curved', color: '#ffca28' },
-};
 
 const i18n = useI18n();
 const { t } = i18n;

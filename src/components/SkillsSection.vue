@@ -1,31 +1,15 @@
 <template>
-  <section id="skills" class="bg-slate-50 dark:bg-slate-950 py-20">
+  <section id="skills" class="border-t border-line py-24">
     <div class="container">
-      <q-intersection once transition="fade">
-        <SectionTitle :title="t('skills.title')" :subtitle="t('skills.subtitle')" />
-      </q-intersection>
-      <q-intersection once transition="slide-up">
-        <div class="mt-12 space-y-10">
-          <div v-for="category in categories" :key="category.title" class="space-y-4">
-            <h3 class="text-lg font-semibold text-slate-900 dark:text-white">{{ category.title }}</h3>
-            <div class="grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
-              <div
-                v-for="item in category.items"
-                :key="item.name"
-                class="group rounded-2xl border border-slate-200/70 dark:border-white/10 bg-white/80 dark:bg-white/5 p-4 flex flex-col items-center justify-center gap-3 shadow-sm hover:-translate-y-1 hover:shadow-lg transition-all"
-              >
-                <q-icon
-                  :name="item.icon"
-                  size="36px"
-                  class="group-hover:scale-110 transition-transform"
-                  :style="{ color: item.color || 'var(--q-primary)' }"
-                />
-                <p class="text-sm font-semibold text-slate-700 dark:text-slate-200 text-center">{{ item.name }}</p>
-              </div>
-            </div>
+      <SectionTitle :title="t('skills.title')" :subtitle="t('skills.subtitle')" />
+      <div class="mt-12 divide-y divide-[var(--line)] border-y border-line">
+        <div v-for="c in categories" :key="c.title" class="grid gap-3 py-6 sm:grid-cols-[220px,1fr]">
+          <h3 class="text-base font-semibold">{{ c.title }}</h3>
+          <div class="flex flex-wrap gap-2">
+            <span v-for="i in c.items" :key="i.name" class="tag !text-sm">{{ i.name }}</span>
           </div>
         </div>
-      </q-intersection>
+      </div>
     </div>
   </section>
 </template>

@@ -4,6 +4,7 @@ import portfolio from 'assets/portfolio.png';
 
 export default {
   nav: {
+    rights: 'Todos os direitos reservados.',
     brand: 'Matheus Pimentel',
     home: 'Home',
     about: 'Sobre mim',
@@ -14,13 +15,17 @@ export default {
     language: 'Alternar idioma',
   },
   hero: {
-    greeting: 'Olá, eu sou o',
     name: 'Matheus Pimentel',
-    role: 'Desenvolvedor de Software Full-Stack.',
-    punchline: 'Construo aplicações web eficientes e escaláveis, unindo back-ends robustos a interfaces elegantes e focadas na experiência do usuário.',
+    role: 'Desenvolvedor full-stack',
+    punchline: 'Trabalho do banco de dados à tela: Java e Spring Boot no back-end, Vue e Quasar no front. Atuo nos sistemas Tagnos, de gestão para escolas e prefeituras.',
     ctaDownload: 'Baixar CV',
-    ctaGithub: 'Ver GitHub',
-    visualizar: 'Visualizar Site',
+    ctaGithub: 'GitHub',
+    ctaProjects: 'Ver projetos',
+    layers: [
+      { label: 'Interface', stack: ['Vue 3', 'Quasar', 'TypeScript', 'Tailwind'] },
+      { label: 'API', stack: ['Java', 'Spring Boot'] },
+      { label: 'Dados e entrega', stack: ['PostgreSQL', 'Docker', 'Jenkins'] },
+    ],
   },
   about: {
     title: 'Sobre mim',
@@ -94,36 +99,43 @@ export default {
     ],
   },
   projects: {
-    title: 'Projetos em Destaque',
-    subtitle: 'Alguns projetos que unem design system, performance e pensamento de produto.',
+    title: 'Projetos',
+    subtitle: 'O que construí, qual era o desafio e com o que.',
+    challenge: 'Desafio',
+    stack: 'Stack',
+    live: 'Ver online',
+    private: 'Código privado (projeto da empresa)',
     items: [
       {
         title: 'Tagnos Educação',
-        description: 'Projeto desenvolvido pela empresa TDR Informática como foco em escolas e instituições de ensino.',
-        tech: ['Vue 2', 'Quasar', 'Javascript', 'Spring Boot', 'Java', 'PostgreSQL', 'JasperStudio', 'Jenkins', 'Docker'],
+        description: 'Sistema de gestão para escolas e instituições de ensino, da TDR Informática.',
+        challenge: 'Reunir matrícula, diário de classe, frequência e notas num único sistema, com documentos e relatórios gerados no servidor.',
+        tech: ['Vue 2', 'Quasar', 'Spring Boot', 'PostgreSQL', 'JasperStudio', 'Jenkins', 'Docker'],
         liveUrl: 'https://tagnos.com.br/',
         image: logoTagnosEducacao,
         backgroundColor: '#eb8217',
-        repoUrl: null
+        repoUrl: null,
       },
       {
         title: 'Tagnos Social',
-        description: 'Projeto desenvolvido pela empresa TDR Informática como foco em atendimentos sociais para os municípios.',
-        tech: ['Vue 2', 'Quasar', 'Javascript', 'Spring Boot', 'Java', 'PostgreSQL', 'JasperStudio', 'Jenkins', 'Docker'],
+        description: 'Sistema de atendimento social para municípios, da TDR Informática.',
+        challenge: 'Digitalizar o atendimento social das prefeituras, com cadastros e relatórios emitidos pelo próprio sistema.',
+        tech: ['Vue 2', 'Quasar', 'Spring Boot', 'PostgreSQL', 'JasperStudio', 'Jenkins', 'Docker'],
         liveUrl: 'https://social.tagnos.com.br/',
         image: logoTagnosSocial,
         backgroundColor: '#005c51',
-        repoUrl: null
+        repoUrl: null,
       },
       {
-        title: 'Portfólio Pessoal',
-        description: 'Portfólio pessoal desenvolvido com Quasar, Vue 3 e TypeScript; foco em performance, acessibilidade e design responsivo, com build em Docker e deploy contínuo.',
-        tech: ['Vue 3', 'Quasar', 'Typescript', 'Docker'],
+        title: 'Portfólio pessoal',
+        description: 'Este site: Quasar, Vue 3 e TypeScript.',
+        challenge: 'Um site simples de manter: tema claro e escuro, dois idiomas, build em Docker e publicação automática.',
+        tech: ['Vue 3', 'Quasar', 'TypeScript', 'Tailwind', 'Docker'],
         liveUrl: 'https://matheuspimentell.com.br/#/',
         image: portfolio,
-        backgroundColor: 'null',
-        repoUrl: 'https://github.com/MatheusPimentel/portfolio#'
-      }
+        backgroundColor: null,
+        repoUrl: 'https://github.com/MatheusPimentel/portfolio',
+      },
     ],
   },
   contact: {
@@ -140,7 +152,7 @@ export default {
     },
     social: [
       { name: 'GitHub', url: 'https://github.com/MatheusPimentel', icon: 'fa-brands fa-github', color: '#181717' },
-      { name: 'LinkedIn', url: 'https://www.linkedin.com/in/matheus-v-pimentel//', icon: 'fa-brands fa-linkedin', color: '#0A66C2' },
+      { name: 'LinkedIn', url: 'https://www.linkedin.com/in/matheus-v-pimentel/', icon: 'fa-brands fa-linkedin', color: '#0A66C2' },
       { name: 'Instagram', url: 'https://www.instagram.com/m.pimentell/', icon: 'fa-brands fa-instagram', color: '#E4405F' },
       { name: 'Gmail', url: 'mailto:matheus200713@gmail.com', icon: 'fa-regular fa-envelope', color: '#D14836' },
       { name: 'Outlook', url: 'mailto:matheus200713@outlook.com', icon: 'fa-regular fa-envelope', color: '#0078D4' },

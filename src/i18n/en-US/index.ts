@@ -4,6 +4,7 @@ import portfolio from 'assets/portfolio.png';
 
 export default {
   nav: {
+    rights: 'All rights reserved.',
     brand: 'Matheus Pimentel',
     home: 'Home',
     about: 'About',
@@ -14,13 +15,17 @@ export default {
     language: 'Toggle language',
   },
   hero: {
-    greeting: 'Hello, I am',
     name: 'Matheus Pimentel',
-    role: 'Full-Stack Software Developer',
-    punchline: 'I build efficient and scalable web applications, bridging robust back-ends with elegant, user-centric interfaces.',
-    ctaDownload: 'Download CV',
-    ctaGithub: 'View GitHub',
-    visualizar: 'View Site',
+    role: 'Full-stack developer',
+    punchline: 'I work from the database to the screen: Java and Spring Boot on the back end, Vue and Quasar on the front. I work on Tagnos, management systems for schools and city governments.',
+    ctaDownload: 'Baixar CV',
+    ctaGithub: 'GitHub',
+    ctaProjects: 'View projects',
+    layers: [
+      { label: 'Interface', stack: ['Vue 3', 'Quasar', 'TypeScript', 'Tailwind'] },
+      { label: 'API', stack: ['Java', 'Spring Boot'] },
+      { label: 'Data and delivery', stack: ['PostgreSQL', 'Docker', 'Jenkins'] },
+    ],
   },
   about: {
     title: 'About me',
@@ -93,36 +98,43 @@ export default {
     ],
   },
   projects: {
-    title: 'Selected Work',
-    subtitle: 'A few projects showcasing the blend of design systems, performance, and product thinking.',
+    title: 'Projects',
+    subtitle: 'What I built, the challenge behind it, and the stack.',
+    challenge: 'Challenge',
+    stack: 'Stack',
+    live: 'Live demo',
+    private: 'Private code (company project)',
     items: [
       {
         title: 'Tagnos Educação',
-        description: 'Project built by TDR Informática focused on schools and educational institutions.',
-        tech: ['Vue 2', 'Quasar', 'Javascript', 'Spring Boot', 'Java', 'PostgreSQL', 'JasperStudio', 'Jenkins', 'Docker'],
+        description: 'Management system for schools and educational institutions, by TDR Informática.',
+        challenge: 'Bring enrollment, class diary, attendance and grades into a single system, with documents and reports generated server-side.',
+        tech: ['Vue 2', 'Quasar', 'Spring Boot', 'PostgreSQL', 'JasperStudio', 'Jenkins', 'Docker'],
         liveUrl: 'https://tagnos.com.br/',
         image: logoTagnosEducacao,
         backgroundColor: '#eb8217',
-        repoUrl: null
+        repoUrl: null,
       },
       {
         title: 'Tagnos Social',
-        description: 'Project built by TDR Informática focused on social care for municipalities.',
-        tech: ['Vue 2', 'Quasar', 'Javascript', 'Spring Boot', 'Java', 'PostgreSQL', 'JasperStudio', 'Jenkins', 'Docker'],
+        description: 'Social services system for city governments, by TDR Informática.',
+        challenge: 'Digitize social services for city governments, with records and reports issued by the system itself.',
+        tech: ['Vue 2', 'Quasar', 'Spring Boot', 'PostgreSQL', 'JasperStudio', 'Jenkins', 'Docker'],
         liveUrl: 'https://social.tagnos.com.br/',
         image: logoTagnosSocial,
         backgroundColor: '#005c51',
-        repoUrl: null
+        repoUrl: null,
       },
       {
-        title: 'Personal Portfolio',
-        description: 'Personal portfolio built with Quasar, Vue 3 and TypeScript; focused on performance, accessibility and responsive design, with Docker builds and continuous deployment.',
-        tech: ['Vue 3', 'Quasar', 'Typescript', 'Docker'],
+        title: 'Personal portfolio',
+        description: 'This site: Quasar, Vue 3 and TypeScript.',
+        challenge: 'A site that is easy to maintain: light and dark themes, two languages, Docker build and automatic deployment.',
+        tech: ['Vue 3', 'Quasar', 'TypeScript', 'Tailwind', 'Docker'],
         liveUrl: 'https://matheuspimentell.com.br/#/',
         image: portfolio,
-        backgroundColor: 'null',
-        repoUrl: 'https://github.com/MatheusPimentel/portfolio#'
-      }
+        backgroundColor: null,
+        repoUrl: 'https://github.com/MatheusPimentel/portfolio',
+      },
     ],
   },
   contact: {

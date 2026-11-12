@@ -1,62 +1,23 @@
 <template>
-  <section id="contact" class="bg-slate-50 dark:bg-gradient-to-b dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 py-20">
-    <div class="container">
-      <q-intersection once transition="fade">
+  <section id="contact" class="border-t border-line py-24">
+    <div class="container grid gap-12 lg:grid-cols-[1.2fr,1fr]">
+      <div>
         <SectionTitle :title="t('contact.title')" :subtitle="t('contact.subtitle')" />
-      </q-intersection>
-      <div class="mt-12 grid gap-10 lg:grid-cols-[1.1fr,0.9fr] items-start">
-        <q-intersection once transition="slide-up">
-          <div class="rounded-3xl border border-slate-200/70 dark:border-white/10 bg-white/90 dark:bg-slate-900/70 shadow-lg p-6 sm:p-8">
-            <q-form @submit.prevent="onSubmit" class="space-y-4">
-              <q-input
-                v-model="form.name"
-                outlined
-                :label="t('contact.form.name')"
-                dense
-                :rules="[val => !!val || 'Required']"
-              />
-              <q-input
-                v-model="form.email"
-                outlined
-                :label="t('contact.form.email')"
-                dense
-                type="email"
-                :rules="[val => !!val || 'Required']"
-              />
-              <q-input
-                v-model="form.message"
-                outlined
-                type="textarea"
-                :label="t('contact.form.message')"
-                autogrow
-                :rules="[val => !!val || 'Required']"
-              />
-              <div class="flex justify-end">
-                <q-btn type="submit" color="primary" :label="t('contact.form.send')" :loading="submitting" unelevated />
-              </div>
-            </q-form>
-          </div>
-        </q-intersection>
-        <q-intersection once transition="slide-up">
-          <div class="rounded-3xl border border-primary-500/30 bg-gradient-to-br from-primary-500/15 via-cyan-400/10 to-transparent p-6 sm:p-8 shadow-lg space-y-6 dark:border-primary-400/30 dark:from-primary-500/25 dark:via-cyan-400/15 dark:to-transparent">
-            <h3 class="text-lg font-semibold text-slate-900 dark:text-white">Social</h3>
-            <div class="flex flex-wrap gap-3">
-              <a
-                v-for="item in social"
-                :key="item.name"
-                :href="item.url"
-                target="_blank"
-                rel="noreferrer"
-                class="flex items-center gap-2 rounded-full border bg-white/80 dark:bg-slate-800/80 px-4 py-2 text-sm font-medium hover:-translate-y-0.5 hover:shadow transition"
-                :style="{ borderColor: item.color || '#0ea5e9', color: item.color || undefined }"
-              >
-                <q-icon :name="item.icon" :style="{ color: item.color || undefined }" />
-                <span>{{ item.name }}</span>
-              </a>
-            </div>
-          </div>
-        </q-intersection>
+        <q-form class="panel mt-10 space-y-4 p-6 sm:p-8" @submit.prevent="onSubmit">
+          <q-input v-model="form.name" outlined dense :label="t('contact.form.name')" :rules="[(v) => !!v || 'Required']" />
+          <q-input v-model="form.email" outlined dense type="email" :label="t('contact.form.email')" :rules="[(v) => !!v || 'Required']" />
+          <q-input v-model="form.message" outlined type="textarea" autogrow :label="t('contact.form.message')" :rules="[(v) => !!v || 'Required']" />
+          <button type="submit" class="btn btn-primary" :disabled="submitting">{{ t('contact.form.send') }}</button>
+        </q-form>
       </div>
+      <ul class="self-end divide-y divide-[var(--line)] border-y border-line">
+        <li v-for="s in social" :key="s.name">
+          <a :href="s.url" target="_blank" rel="noreferrer" class="group flex items-center justify-between py-4 transition-colors hover:text-accent">
+            <span class="flex items-center gap-3"><q-icon :name="s.icon" size="18px" />{{ s.name }}</span>
+            <q-icon name="fa-solid fa-arrow-up-right-from-square" size="12px" class="opacity-40 transition group-hover:opacity-100" />
+          </a>
+        </li>
+      </ul>
     </div>
   </section>
 </template>
